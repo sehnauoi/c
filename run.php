@@ -1,3 +1,4 @@
+<?php
 require_once 'UnityAsset.php'; // This will require UnityBundle.php as it needs FileStream
 
 $bundleFileName = 'bundle_name.unity3d'; // This is the bundle file with file header "UnityFS"
