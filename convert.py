@@ -13,4 +13,4 @@ print(list)
 for x in list:
     # Process each file here
     # os.system("a.py")
-    os.system("a.py "+x+".json"+" "+x+".csv")
+    os.system("b.py "+x+".json"+" "+x+".csv")
