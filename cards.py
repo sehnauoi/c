@@ -11,7 +11,7 @@ soup = BeautifulSoup(reqs.text, 'html.parser')
 urls = []
 for link in soup.find_all('a'):
     # print(link.get('href'))
-    output_dir = os.path.abspath("/public/images/cards")
+    output_dir = os.path.abspath("/images/cards")
   
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
