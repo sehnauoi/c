@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from img2dataset import download
-import shutil
 import os
+import shutil
+
  
 url = 'https://redive.estertion.win/card/full/'
 reqs = requests.get(url)
@@ -10,14 +10,13 @@ soup = BeautifulSoup(reqs.text, 'html.parser')
  
 urls = []
 for link in soup.find_all('a'):
-    # print(link.get('href'))
-    output_dir = os.path.abspath("/images/cards")
-  
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)
-    
-    download(
-        processes_count=16,
-        thread_count=32,
-        url_list=urls,
-)
+    url = link.get('href')
+    r = requests.get('https://redive.estertion.win/card/full/'+url, stream=True)
+    if r.status_code == 200:
+        with open(url, 'wb') as f:
+            r.raw.decode_content = True
+            shutil.copyfileobj(r.raw, f)
+
+    base = os.path.splitext(url)[0]
+    os.rename(url, base + '.png')
+
