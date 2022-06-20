@@ -73,7 +73,7 @@ def extract(): #Get Hash and files name (also raw)
   for x in file:
     print("Extracting...")
     w = r'/cards/'+x[14:21]+'png'
-    os.system("deserialize.py ")
+    os.system("./public/images/deserialize.py ")
     subprocess.call(['python', 'deserialize.py', path, w])
   
   print("Extract Finished!!!")
