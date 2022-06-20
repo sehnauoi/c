@@ -68,12 +68,11 @@ def extract(): #Get Hash and files name (also raw)
     print("Downloading "+link+"\n"+y+"\nin "+path+"\nas "+x+"\n==========================")
     
   print("Download Finished!\n==========================")
-   
-  # extracting
+  
+  print("Extracting...")  # extracting
   for x in file:
-    print("Extracting...")
     w = r'/cards/'+x[14:21]+'png'
-    os.system("./public/images/deserialize.py ")
+    os.system('./public/images/deserialize.py')
     subprocess.call(['sudo','python', 'deserialize.py', path, w])
   
   print("Extract Finished!!!")
