@@ -66,7 +66,8 @@ def extract(): #Get Hash and files name (also raw)
     path = r'./public/images/raw/'+x
     urllib.request.urlretrieve(link, path)
     print("Downloading "+link+"\n"+y+"\nin "+path+"\nas "+x+"\n==========================")
-    print("Download Finished!\n==========================")
+    
+  print("Download Finished!\n==========================")
    
   # extracting
   for x in file:
@@ -74,7 +75,8 @@ def extract(): #Get Hash and files name (also raw)
     w = r'/cards/'+x[14:21]+'png'
     os.system("deserialize.py ")
     subprocess.call(['python', 'deserialize.py', path, w])
-    print("Extract Finished!!!")
+  
+  print("Extract Finished!!!")
    
 get_files()
 get_all()
