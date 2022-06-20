@@ -60,17 +60,6 @@ def report(): # reporting
   print(file[:10])
 
 def extract(): #Get Hash and files name (also raw)
-  
-  path = '/raw'
-  
-  # Check whether the specified path exists or not
-  isExist = os.path.exists(path)
-  
-  if not isExist:
-    # Create a new directory because it does not exist 
-    os.makedirs(path)
-  print("The new directory is created!")
-
   # downloading 3dUnity
   for x,y in zip(file,hash):
     link = "http://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/"+y[0:2]+"/"+y
@@ -90,5 +79,3 @@ get_files()
 get_all()
 report()
 extract()
-os.remove("bg.txt")
-os.rmdir('/raw')
