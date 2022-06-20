@@ -66,15 +66,16 @@ def extract(): #Get Hash and files name (also raw)
     path = r'./public/images/raw/'+x
     urllib.request.urlretrieve(link, path)
     print("Downloading "+link+"\n"+y+"\nin "+path+"\nas "+x+"\n==========================")
-    
-  w = r'/cards/'+x[14:21]+'png'
-  os.system("deserialize.py ")
-  subprocess.call(['python', 'deserialize.py', path, w])
-  print("Download Finished!")
-
-# http://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/${hash.substr(0, 2)}/${hash}
-
-
+    print("Download Finished!\n==========================")
+   
+  # extracting
+  for x in file:
+    print("Extracting...")
+    w = r'/cards/'+x[14:21]+'png'
+    os.system("deserialize.py ")
+    subprocess.call(['python', 'deserialize.py', path, w])
+    print("Extract Finished!!!")
+   
 get_files()
 get_all()
 report()
