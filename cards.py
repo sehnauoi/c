@@ -61,7 +61,7 @@ def download_unity(): #Get Hash and files name (also raw)
   # downloading 3dUnity
   for x,y in zip(file,hash):
     link = "http://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/"+y[0:2]+"/"+y
-    path = r'./raw/'+x
+    path = r'./public/images/raw/'+x
     urllib.request.urlretrieve(link, path)
     print("Downloading "+link+"\n"+y+"\nin "+path+"\nas "+x+"\n==========================")  
   print("Download Finished!")
@@ -99,8 +99,9 @@ def unpack_all_assets(source_folder : str, destination_folder : str):
                     print("Extracting "+data.name[11:17]+".png"+"\n==========================")
     print("Extract Completed!")
 
-get_files()
-get_all()
-report()
-download_unity()
-unpack_all_assets('./raw/', './cards/')
+if __name__ == "__main__":
+  get_files()
+  get_all()
+  report()
+  download_unity()
+  unpack_all_assets('./public/images/raw/', './public/images/cards/')
