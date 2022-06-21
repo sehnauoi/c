@@ -87,16 +87,22 @@ def unpack_all_assets(source_folder : str, destination_folder : str):
                     data = obj.read()
 
                     # create destination path
-                    dest = os.path.join(destination_folder, data.name[11:17])
+                    dest = os.path.join(destination_folder, data.name[11:18])
 
                     # make sure that the extension is correct
                     # you probably only want to do so with images/textures
                     dest, ext = os.path.splitext(dest)
                     dest = dest + ".png"
 
-                    img = data.image
-                    img.save(dest)
-                    print("Extracting "+data.name[11:17]+".png"+"\n==========================")
+                    if dest.endswith('_.png'):
+                      continue
+
+                    else:
+                      img = data.image
+                      img.save(dest)
+                      print(dest)
+                      print("Extracted to "+data.name[11:17]+".png"+"\n==========================")
+                        
     print("Extract Completed!")
 
 if __name__ == "__main__":
