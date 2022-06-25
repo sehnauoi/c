@@ -63,7 +63,7 @@ def download_unity(): #Get Hash and files name (also raw)
     link = "http://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/"+y[0:2]+"/"+y
     path = r'./public/images/raw/'+x
     urllib.request.urlretrieve(link, path)
-    print("Downloading "+link+"\n"+y+"\nin "+path+"\nas "+x+"\n==========================")  
+    print(path+"Downloaded ")  
   print("Download Finished!")
 
 def unpack_all_assets(source_folder : str, destination_folder : str):
