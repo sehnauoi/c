@@ -9,6 +9,12 @@ file = []
 hash = []
 id = []
 name = []
+
+itemsraw = []
+itemsfile = []
+itemshash = []
+itemsid = []
+
 def cards():
   def get_files(): # get data from url
   
@@ -39,7 +45,7 @@ def cards():
                 raw.append(line[start:start+47])
                 file.append(line[start:start+28])
                 hash.append(line[start+29:start+61])
-                id.append(line[start+16:start+22])
+#                 id.append(line[start+16:start+22])
                 name.append(line[start+5:start+22])
   
   
@@ -140,30 +146,30 @@ def items():
         for line in f:
             if 'a/icon_icon_equipment_invalid_' in line:
                 start = line.index('icon_icon_equipment_invalid_')
-                raw.append(line[start:start+75])
-                file.append(line[start:start+42])
-                hash.append(line[start+43:start+75])
-                id.append(line[start+28:start+34])
+                itemraw.append(line[start:start+75])
+                itemfile.append(line[start:start+42])
+                itemhash.append(line[start+43:start+75])
+#                 itemid.append(line[start+28:start+34])
   
   
   def report(): # reporting
     print("""
                                    === Raw ===                                   
           """)
-    print(raw[:10])
+    print(itemraw[:10])
     print("""
                                    === Hash ===                                  
           """)
-    print(hash[:10])
+    print(itemhash[:10])
     print("""
                                 === File Names ===                               
     """)
-    print(file[:10])
+    print(itemfile[:10])
     print("\n")
   
   def download_unity(): #Get Hash and files name (also raw)
     # downloading 3dUnity
-    for x,y in zip(file,hash):
+    for x,y in zip(itemfile,itemhash):
       link = "http://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/"+y[0:2]+"/"+y
       path = r'./public/images/item/'+x
       urllib.request.urlretrieve(link, path)
@@ -172,7 +178,7 @@ def items():
   def unpack_all_assets(source_folder : str, destination_folder : str):
       # iterate over all files in source folder
       for root, dirs, files in os.walk(source_folder):
-          for file_name in files:
+          for file_name in itemfiles:
               # generate file_path
               file_path = os.path.join(root, file_name)
               # load that file via UnityPy.load
@@ -191,10 +197,10 @@ def items():
                       # make sure that the extension is correct
                       # you probably only want to do so with images/textures
                       dest, ext = os.path.splitext(dest)
-                      desta = dest + '.png'
+                      dest = dest + ".png"
   
                       img = data.image
-                      img.save(desta)
+                      img.save(dest)
                       # print(dest)
                       print(source_folder+file_name+" -> "+dest)
 
