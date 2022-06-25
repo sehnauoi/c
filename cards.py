@@ -92,16 +92,21 @@ def unpack_all_assets(source_folder : str, destination_folder : str):
                     # make sure that the extension is correct
                     # you probably only want to do so with images/textures
                     dest, ext = os.path.splitext(dest)
-                    dest = dest + ".png"
+                    dest = dest + ".webp"
+                    name = data.name[11:18]
 
-                    if dest.endswith('_.png'):
+                    if dest.endswith('_.webp'):
                       continue
 
                     else:
-                      img = data.image
-                      img.save(dest)
-                      print(dest)
-                      print("Extracted to "+data.name[11:17]+".png"+"\n==========================")
+                      if name.startswith('on'):
+                        continue
+                        
+                      else:
+                        img = data.image
+                        img.save(dest)
+                        # print(dest)
+                        print(source_folder+file_name+" -> "+dest)
                         
     print("Extract Completed!")
 
