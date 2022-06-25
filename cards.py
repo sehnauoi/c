@@ -191,10 +191,10 @@ def items():
                       # make sure that the extension is correct
                       # you probably only want to do so with images/textures
                       dest, ext = os.path.splitext(dest)
-                      dest = dest + '.png'
+                      desta = dest + '.png'
   
                       img = data.image
-                      img.save(dest)
+                      img.save(desta)
                       # print(dest)
                       print(source_folder+file_name+" -> "+dest)
 
