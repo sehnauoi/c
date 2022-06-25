@@ -10,10 +10,10 @@ hash = []
 id = []
 name = []
 
-itemsraw = []
-itemsfile = []
-itemshash = []
-itemsid = []
+itemraw = []
+itemfile = []
+itemhash = []
+itemid = []
 
 def cards():
   def get_files(): # get data from url
@@ -178,7 +178,7 @@ def items():
   def unpack_all_assets(source_folder : str, destination_folder : str):
       # iterate over all files in source folder
       for root, dirs, files in os.walk(source_folder):
-          for file_name in itemfiles:
+          for file_name in files:
               # generate file_path
               file_path = os.path.join(root, file_name)
               # load that file via UnityPy.load
