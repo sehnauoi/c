@@ -66,10 +66,6 @@ def download_unity(): #Get Hash and files name (also raw)
     print("Downloading "+link+"\n"+y+"\nin "+path+"\nas "+x+"\n==========================")  
   print("Download Finished!")
 
-  # w = r'/cards/'+x[14:21]+'png'
-  # os.system("deserialize.py ")
-  # subprocess.call(['python', 'deserialize.py', x, w])
-  
 def unpack_all_assets(source_folder : str, destination_folder : str):
     # iterate over all files in source folder
     for root, dirs, files in os.walk(source_folder):
