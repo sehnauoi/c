@@ -65,7 +65,6 @@ def cards():
       path = r'./public/images/raw/'+x
       urllib.request.urlretrieve(link, path)
       print(path+" Downloaded")  
-      print("Download Finished!")
     
   def unpack_all_assets(source_folder : str, destination_folder : str):
       # iterate over all files in source folder
@@ -111,6 +110,7 @@ def cards():
   get_all()
   report()
   download_unity()
+  print("Download Finished!")
   unpack_all_assets('./public/images/raw/', './public/images/cards/')
   
 def items():
@@ -165,11 +165,10 @@ def items():
     # downloading 3dUnity
     for x,y in zip(file,hash):
       link = "http://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/"+y[0:2]+"/"+y
-      path = r'./item/'+x
+      path = r'./public/images/item/'+x
       urllib.request.urlretrieve(link, path)
       print(path+" Downloaded")    
-    print("Download Finished!")
-    
+      
   def unpack_all_assets(source_folder : str, destination_folder : str):
       # iterate over all files in source folder
       for root, dirs, files in os.walk(source_folder):
@@ -206,6 +205,7 @@ def items():
   get_all()
   report()
   download_unity()
+  print("Download Finished!")
   unpack_all_assets('./public/images/item/', './public/images/invalid_items/')
 
 if __name__ == "__main__":
