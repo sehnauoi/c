@@ -58,7 +58,7 @@ def report(): # reporting
   print(file[:10])
 
 def download_unity(): #Get Hash and files name (also raw)
-  # downloading 3dUnity
+  # downloading Unity3d
   for x,y in zip(file,hash):
     link = "http://prd-priconne-redive.akamaized.net/dl/pool/AssetBundles/"+y[0:2]+"/"+y
     path = r'./public/images/raw/'+x
